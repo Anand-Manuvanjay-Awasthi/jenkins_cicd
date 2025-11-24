@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hearth & Fork — Modern Bistro</title>
+  <meta name="description" content="Hearth & Fork — seasonal farm-to-table bistro. Menu, reservations, events, and contact." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#ff6b35;
+      --muted:#98a0ad;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #06111a 0%, #06121b 50%, #081428 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:36px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .wrap{width:100%;max-width:var(--max-width);}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:28px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff9a6a);display:flex;align-items:center;justify-content:center;font-weight:700;color:#111
+    }
+    .brand h1{font-family:'Playfair Display', serif;margin:0;font-size:20px;line-height:1}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
+    .cta{background:linear-gradient(90deg,var(--accent),#ff8a58);padding:10px 16px;border-radius:10px;color:#111;font-weight:700;text-decoration:none}
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:stretch;margin-bottom:30px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:28px;border-radius:18px;backdrop-filter: blur(6px);
+    }
+    .hero-left{padding:18px}
+    .eyebrow{color:var(--accent);font-weight:700;letter-spacing:0.06em;font-size:13px}
+    h2{font-family:'Playfair Display';font-size:34px;margin:8px 0 12px}
+    p.lead{color:var(--muted);max-width:62%}
+
+    .badges{display:flex;gap:8px;margin-top:16px}
+    .badge{padding:8px 10px;background:var(--glass);border-radius:999px;font-weight:600;color:var(--muted);font-size:13px}
+
+    .hero-right{display:flex;flex-direction:column;gap:14px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px}
+    .reservation .label{font-size:13px;color:var(--muted);margin-bottom:6px}
+    .row{display:flex;gap:8px}
+    input[type=text],input[type=date],input[type=time],select{width:100%;padding:10px;border-radius:10px;border:0;background:rgba(255,255,255,0.025);color:inherit}
+    .btn{padding:10px 12px;border-radius:10px;border:0;background:var(--accent);font-weight:700;color:#111;cursor:pointer}
+
+    /* Menu */
+    .section{margin-top:22px}
+    .section h3{font-size:20px;margin:0 0 8px}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .dish{background:var(--card);padding:12px;border-radius:12px}
+    .dish h4{margin:0 0 6px;font-size:15px}
+    .dish p{margin:0;color:var(--muted);font-size:13px}
+    .price{font-weight:800;color:var(--accent)}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:10px}
+
+    footer{display:flex;justify-content:space-between;align-items:center;margin-top:22px;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .menu-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+      .lead{max-width:100%}
+    }
+    @media (max-width:620px){
+      header{flex-direction:column;align-items:flex-start}
+      nav{order:2;width:100%;display:flex;justify-content:space-between}
+      .menu-grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+
+    /* decorative */
+    .accent-line{height:3px;width:64px;border-radius:3px;background:linear-gradient(90deg,var(--accent),#ff9a6a);margin:8px 0}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">HF</div>
+        <div>
+          <h1>Hearth & Fork</h1>
+          <p>Seasonal bistro • Farm-to-table</p>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#reserve">Reserve</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="eyebrow">Locally sourced • Cooked with care</div>
+          <h2>Where seasonal produce meets friendly fire.</h2>
+          <p class="lead">Hearth & Fork is a neighborhood bistro celebrating small farms, bold flavors, and slow, honest cooking. Join us for brunch, dinner, or a private event.</p>
+
+          <div class="badges">
+            <div class="badge">Chef's tasting</div>
+            <div class="badge">Outdoor seating</div>
+            <div class="badge">Gluten-friendly</div>
+          </div>
+
+          <div class="section" id="menu">
+            <div class="accent-line"></div>
+            <h3>Today’s highlights</h3>
+            <div class="menu-grid">
+              <div class="dish">
+                <h4>Roasted Beet & Burrata <span class="price">₹520</span></h4>
+                <p>Caramelized hazelnuts, citrus, herb oil.</p>
+              </div>
+              <div class="dish">
+                <h4>Charred Eggplant Pasta <span class="price">₹640</span></h4>
+                <p>Smoky tomato sugo, ricotta, pangrattato.</p>
+              </div>
+              <div class="dish">
+                <h4>Seared Barramundi <span class="price">₹980</span></h4>
+                <p>Creamy fennel, lemon beurre blanc.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="card reservation" id="reserve">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+              <strong>Reserve a table</strong>
+              <small style="color:var(--muted);font-size:13px">Open: 10:00 — 23:00</small>
+            </div>
+
+            <label class="label">Name</label>
+            <input id="r-name" type="text" placeholder="Your name" />
+
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <div style="flex:1">
+                <label class="label">Date</label>
+                <input id="r-date" type="date" />
+              </div>
+              <div style="width:120px">
+                <label class="label">Time</label>
+                <input id="r-time" type="time" />
+              </div>
+            </div>
+
+            <div style="display:flex;gap:8px;margin-top:10px;align-items:center">
+              <div style="flex:1">
+                <label class="label">Guests</label>
+                <select id="r-guests">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option selected>4</option>
+                  <option>5+</option>
+                </select>
+              </div>
+              <button class="btn" onclick="reserve()">Request</button>
+            </div>
+            <small id="r-msg" style="display:block;margin-top:8px;color:var(--muted)"></small>
+          </div>
+
+          <div class="card" style="margin-top:6px">
+            <strong>Today's special</strong>
+            <p style="color:var(--muted);margin:8px 0 0">Hearth-roasted lamb shoulder with smoked polenta — slow-cooked and served family-style.</p>
+          </div>
+
+          <div class="card" style="margin-top:6px">
+            <strong>Private events</strong>
+            <p style="color:var(--muted);margin:8px 0 0">Intimate gatherings, birthday dinners, and small corporate events. Ask about our set menus.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="gallery">
+        <h3>Gallery</h3>
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1541542684-56b86b9e3f1f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="dish-1">
+          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="dish-2">
+          <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="interior-1">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="interior-2">
+        </div>
+      </section>
+
+      <section class="section" id="events">
+        <h3>Upcoming events</h3>
+        <div style="display:flex;gap:12px;margin-top:8px;flex-wrap:wrap">
+          <div class="card" style="flex:1;min-width:220px">
+            <strong>Wine tasting • Nov 29</strong>
+            <p style="color:var(--muted);margin-top:6px">An evening with three local vintners — paired small plates included.</p>
+          </div>
+          <div class="card" style="flex:1;min-width:220px">
+            <strong>Sunday Brunch • Every week</strong>
+            <p style="color:var(--muted);margin-top:6px">Bottomless coffee & seasonal quiches. Kids welcome.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <h3>Contact & hours</h3>
+        <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-top:8px">
+          <div style="flex:1;min-width:260px">
+            <div class="card">
+              <strong>Hearth & Fork</strong>
+              <p style="color:var(--muted);margin:6px 0 0">123 Orchard Lane<br/>Neighbourhood, City • 110001</p>
+              <p style="color:var(--muted);margin:8px 0 0">Phone: +91 98765 43210<br/>Email: hello@hearthfork.example</p>
+            </div>
+          </div>
+
+          <div style="flex:1;min-width:320px">
+            <div class="card">
+              <strong>Hours</strong>
+              <p style="color:var(--muted);margin:6px 0 0">Mon-Fri: 10:00 — 22:00<br/>Sat-Sun: 09:00 — 23:00</p>
+              <a class="cta" style="display:inline-block;margin-top:10px;text-decoration:none" href="mailto:hello@hearthfork.example">Email us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Hearth & Fork • All rights reserved</div>
+      <div>Made with fire & good humor • <span style="color:var(--muted)">VAT 18%</span></div>
+    </footer>
+
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function reserve(){
+      const name = document.getElementById('r-name').value.trim();
+      const date = document.getElementById('r-date').value;
+      const time = document.getElementById('r-time').value;
+      const guests = document.getElementById('r-guests').value;
+      const msg = document.getElementById('r-msg');
+
+      if(!name || !date || !time){
+        msg.textContent = 'Please enter your name, date and time.';
+        return;
+      }
+
+      // This is a demo placeholder. In a real site you'd POST this to a server.
+      msg.textContent = `Thanks, ${name}! We received your request for ${guests} on ${date} at ${time}. We'll confirm shortly.`;
+      msg.style.color = '#c7ffd9';
+    }
+  </script>
+</body>
+</html>
